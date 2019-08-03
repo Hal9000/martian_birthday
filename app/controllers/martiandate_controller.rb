@@ -38,7 +38,6 @@ class MartiandateController < ApplicationController
     end
   end
 
-
   def file_exist(file_name)
     !File.file? "#{Rails.root}/public#{file_name}"
   end

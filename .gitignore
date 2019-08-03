@@ -29,3 +29,4 @@ yarn-debug.log*
 
 .idea/*
 /public/uploads/*
+!/public/uploads/.keep
