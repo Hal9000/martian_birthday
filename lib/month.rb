@@ -21,8 +21,8 @@ class Month
     19 => 'October',
     20 => 'Pisces',
     21 => 'November',
-    21 => 'Aries',
-    22 => 'December',
+    22 => 'Aries',
+    23 => 'December',
     24 => 'Taurus'
   }.freeze
 end
