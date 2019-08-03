@@ -1,0 +1,22 @@
+#exampleModalCenter.modal.fade aria-hidden='true' aria-labelledby='exampleModalCenterTitle' role='dialog' tabindex='-1'
+  .modal-dialog.modal-dialog-centered role='document'
+    .modal-content
+      .modal-header
+        h5#exampleModalLongTitle.modal-title Share your Martian Birthday with friends
+        button.close aria-label='Close' data-dismiss='modal' type='button'
+          span aria-hidden='true'  &times;
+      .modal-body
+        .row.pt-3
+          .col-12
+            .form-group
+              input#nameInput.form-control type='text' placeHolder='Enter Your Name'
+            .notice
+          .col-12.d-flex.justify-content-center
+            button.btn.btn-primary.share-btn.mr-1 type='button' data-share-media='facebook'
+              i.fab.fa-facebook-f
+            button.btn.btn-primary.share-btn.mr-1 type='button' data-share-media='twiter'
+              i.fab.fa-twitter
+            button.btn.btn-primary.share-btn.mr-1 type='button' data-share-media='copyToClipboard'
+              i.fas.fa-link
+      .modal-footer
+        .font-italic PS: We do not store/record/distribute any user identifiable information.

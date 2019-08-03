@@ -1,0 +1,16 @@
+.container-fluid
+  .card.d-flex.justify-content-center.align-items-center.mt-5.index-card
+    .card-body.p-5
+      .col-lg-12.col-md-12.col-sm-12.col-xs-12
+        h1.text-center.font-weight-bold When is your Martian birthday ?
+        h6.text-center Where were Earth and Mars when you were born ?
+      .col-lg-12.col-md-12.col-sm-12.col-xs-12.mt-5.d-flex.justify-content-center
+        = form_tag martiandate_index_path, :id => 'martiandate-form', method: :get do end
+        .input-group.mb-3.input-append.date.datepicker.col-md-8
+          .input-group-prepend
+          input.form-control name="dob" id="dob" data-date-format="mm/dd/yyyy" placeholder="Select your Birthday"
+          .input-group-append
+            span.input-group-text
+              i.fas.fa-calendar-alt
+      .col-lg-12.col-md-12.col-sm-12.col-xs-12.d-flex.justify-content-center.align-items-center
+        = button_tag 'Find out now', class: 'btn btn-primary', id: 'dob-btn'

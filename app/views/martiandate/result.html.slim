@@ -1,0 +1,32 @@
+- content_for(:page_title, (@name + ' martian birthday' if @name))
+- content_for(:page_description, (@name + ' martian birthday' if @name))
+
+.container-fluid
+  .card.d-flex.justify-content-center.align-items-center.mt-3
+    .card-body.p-5
+      .row
+        .col-sm-8.col-xs-12
+          .earth.d-flex.align-items-center
+            = image_tag 'noun_Earth_231504.svg', width: '50px', class: 'mr-2', alt: 'Earth by Ariel Kotzer from the Noun Project'
+            p
+              | Birthdate on Earth&nbsp;
+              span.font-weight-bold #{@earth_dob}
+          .mars.d-flex.align-items-center
+            = image_tag 'noun_Mars_288064.svg', width: '45px', class: 'mr-2', alt: 'Mars by lastspark from the Noun Project'
+            p
+              | #{@name && @name.length > 0 ? "#{@name.capitalize}'s" : 'Your'} Martian birthday is&nbsp;
+              span.font-weight-bold #{@month_name} #{@month}, #{@mrtn_year} MCE
+          br
+          p
+            span.font-weight-bold  What does this mean?
+            |&nbsp;
+            span Well, remember that Martian #{@month_name} is the 21st of the 24 months in the MCE calendar. It has nothing to do with "our" #{@month_name}! In fact, the #{@month}th is the last day of the month. And the year #{@mrtn_year} sounds medieval tol us! But Mars takes  nearly twice as long to orbit the sun. Think of it this way: while the Earth orbited the sun #{@earth_year} times, Mars only orbited #{@mrtn_year} times.
+          p If you want to see how the tow planets were positioned on the day you were born, checkout the image above.
+          P Famouse people sharing you Martilan birthday
+        .col-sm-4.col-xs-12
+          = image_tag image_path(@image_name), class: 'img-fluid'
+      .row
+        .col-12
+          .d-flex.align-items-center.flex-column
+            button.btn.btn-primary data-target="#exampleModalCenter" data-toggle="modal" type="button" Share
+    = render :partial => 'martiandate/share_modal'

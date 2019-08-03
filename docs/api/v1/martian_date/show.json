@@ -1,0 +1,36 @@
+{
+  "published": true,
+  "name": "Show Martian Date",
+  "end_point": "api/v1/martian_date/<date_in_iso_format>",
+  "http_method": "GET",
+  "header": {
+    "Content-Type": "application/json"
+  },
+  "examples": [{
+    "request": {
+      "endpoint": "/api/v1/martian_date/2019-08-03T07:32:00.171Z"
+    },
+    "response": {
+      "status": true,
+      "result": {
+        "earth_date": "2019-08-03T07:32:00",
+        "martian_date": {
+          "mems": 63698745599832,
+          "msec": 3,
+          "mmin": 12,
+          "mhrs": 6,
+          "sol": 18,
+          "month": 5,
+          "year": 1074,
+          "epoch_sol": 717529,
+          "dow": 0,
+          "day_of_week": "Sunday",
+          "year_sol": 130,
+          "shr": 6,
+          "smin": 2,
+          "ssec": 6
+        }
+      }
+    }
+  }]
+}

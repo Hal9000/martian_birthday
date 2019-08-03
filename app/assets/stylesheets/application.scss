@@ -1,0 +1,118 @@
+/*
+ *= require framework_bootstrap
+ *= require 'bootstrap-datepicker/dist/css/bootstrap-datepicker'
+ *= require '@fortawesome/fontawesome-free/scss/fontawesome'
+ *= require '@fortawesome/fontawesome-free/scss/solid'
+ */
+
+.content-wrapper {
+  min-height: calc(100vh - 70px);
+  padding: 50px
+}
+
+.p-l-xxl {
+  padding-left: 50px
+}
+
+.p-r-xxl {
+  padding-right: 50px
+}
+
+.orbit-image {
+  width: 100%;
+  height: 400px;
+}
+
+.footer-section {
+  background-color: aqua
+}
+
+.link-none > a {
+  text-decoration: none;
+}
+
+.slider-section {
+  width: 100%;
+  height: 300px;
+}
+
+.slider-image {
+  width: 100%;
+  height: 300px;
+  padding-bottom: 50px
+}
+
+.result-img {
+  float: right;
+  margin-left: 40px;
+  width: 430px;
+  height: 400px;
+}
+
+.w-130 {
+  width: 130px;
+}
+
+.notice {
+  color: red;
+}
+
+.toggle {
+  &:last-child {
+    border-bottom: 1px solid #F2F2F2;
+  }
+  .toggle-title {
+    position: relative;
+    display: block;
+    border-top: 1px solid #F2F2F2;
+    margin-bottom: 6px;
+    h3 {
+      font-size: 20px;
+      margin: 0px;
+      line-height: 1;
+      cursor: pointer;
+      font-weight: 200;
+    }
+    &.active h3 {
+    }
+  }
+
+  .toggle-inner {
+    padding: 7px 25px 10px 25px;
+    display: none;
+    margin: -7px 0 6px;
+    div {
+      max-width: 100%;
+    }
+  }
+
+  .toggle-title {
+    .title-name {
+      display: block;
+      padding: 25px 25px 14px;
+    }
+
+    a i {
+      font-size: 22px;
+      margin-right: 5px;
+    }
+
+    i {
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      -webkit-transition: all 0.3s ease;
+      -moz-transition: all 0.3s ease;
+      -o-transition: all 0.3s ease;
+      -ms-transition: all 0.3s ease;
+      transition: all 0.3s ease;
+      margin: 20px;
+      right: 0;
+    }
+  }
+}
+
+
+footer {
+
+}
