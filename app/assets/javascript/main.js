@@ -1,5 +1,4 @@
 import copyToClipBoard from "../../javascript/copyToClipboard";
-
 $(document).on('turbolinks:load', function () {
   $('.datepicker').datepicker({
     format: 'mm/dd/yyyy',
@@ -64,4 +63,16 @@ $(document).on('turbolinks:load', function () {
   function shareOnTwiter(data) {
     window.open('https://twitter.com/intent/tweet?text=' + data)
   }
+
+  if($(".toggle .toggle-title").hasClass('active') ){
+    $(".toggle .toggle-title.active").closest('.toggle').find('.toggle-inner').show();
+  }
+
+  $(".toggle .toggle-title").on('click', (event) => {
+    if($(event.currentTarget).hasClass('active')) {
+      $(event.currentTarget).removeClass("active").closest('.toggle').find('.toggle-inner').slideUp(200);
+    } else{
+      $(event.currentTarget).addClass("active").closest('.toggle').find('.toggle-inner').slideDown(200);
+    }
+  });
 });

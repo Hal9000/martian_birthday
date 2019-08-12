@@ -6,18 +6,41 @@ html
     meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"
     meta name="viewport" content="width=device-width, initial-scale=1"
     meta content="#da532c" name="msapplication-TileColor"
+  
     - title = 'MartianBirthday'
     - description = 'MartianBirthday'
+    - image = if yield(:image).present? then yield :image else asset_url("logo.png") end
+    
     title= "#{if yield(:page_title).present? then yield :page_title else title end}"
+    meta property="og:title" content=("#{if yield(:page_title).present? then yield :page_title else title end}")
+    meta property="twitter:title" content=("#{if yield(:page_title).present? then yield :page_title else title end}")
+    meta property="tumblr:title" content=("#{if yield(:page_title).present? then yield :page_title else title end}")
+
     meta name="description" content=("#{if yield(:page_description).present? then yield :page_description else description end}")
-    meta name="keywords" content="MartianBirthday, Martian, Birthday, Birthdate"
+    meta property="og:description" content=("#{if yield(:page_description).present? then yield :page_description else description end}")
+    meta itemprop="description" content=("#{if yield(:page_description).present? then yield :page_description else description end}")
+    meta name="twitter:description" content=("#{if yield(:page_description).present? then yield :page_description else description end}")
+  
+    meta name="keywords" content="MartianBirthday, Martian, Birthday, Birthdate, MartianBirthday finding service"
+
+    meta property="og:image" itemprop="image" content=image
+    meta itemprop="image" content=image
+    meta name="twitter:image" content=image
+
+    meta property="og:type" content=("#{if yield(:page_description).present? then 'article' else 'website' end}")
+    meta property="og:site_name" content="MartianBirthday"
+    meta property="og:url" content=("#{if yield(:page_url).present? then yield :page_url else 'https://martianbirthday.com/' end}")
+
+    meta name="copyright" content="MartianBirthday"
+    meta content="MartianBirthday" itemprop="name"
+    meta property="og:locale" content="en_US"
 
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
     script src="https://kit.fontawesome.com/6d90f39943.js"
-    link href="https://fonts.googleapis.com/css?family=Raleway:400,600,700&display=swap" rel="stylesheet"
+    link href="https://fonts.googleapis.com/css?family=Raleway:400,500,600,700&display=swap" rel="stylesheet"
   body
     = render :partial => 'layouts/header'
     - if @error

@@ -18,9 +18,9 @@ class MartiandateController < ApplicationController
           mrtn_dob = MarsDateTime.new(@birthday)
           @earth_dob = @birthday.strftime('%B %d, %Y')
           @earth_year = @birthday.strftime('%Y')
-          @month = @birthday.strftime('%d')
-          @month_name = @birthday.strftime('%B')
-          @mrtn_year = mrtn_dob.year
+          @m_date = @birthday.strftime('%d')
+          @m_month = @birthday.strftime('%B')
+          @m_year = mrtn_dob.year
         rescue ArgumentError
           @error = 'The Given URL is invalid, please retry and find your martial Birthday'
         end
@@ -29,9 +29,9 @@ class MartiandateController < ApplicationController
       end
     end
     @birthday = Date.today if @birthday.nil?
-    @image_name = "/uploads/" + @birthday.to_s.strip.split('-').join() + '.jpg'
-    if file_exist(@image_name)
-      save_martian_birthday_image(@birthday, @image_name)
+    @image_location = "/uploads/" + @birthday.to_s.strip.split('-').join() + '.jpg'
+    if file_exist(@image_location)
+      save_martian_birthday_image(@birthday, @image_location)
     end
     if @earth_dob
       render :result

@@ -1,5 +1,11 @@
-- content_for(:page_title, (@name + ' martian birthday' if @name))
-- content_for(:page_description, (@name + ' martian birthday' if @name))
+- if @name.present?
+  - content_for(:page_title, ("Find out #{@name}'s martian birthday"))
+  - content_for(:page_description, ("#{@name}'s Martian birthday is on #{@m_month} #{@m_date}, #{@m_year}"))
+- else
+  - content_for(:page_title, ("Find out Martian birthday on #{@earth_dob}"))
+  - content_for(:page_description, ("Martian date equivalent to Earth's #{@earth_dob} is #{@m_month} #{@m_date}, #{@m_year}"))
+- content_for(:image, (request.scheme + '://' + request.host + @image_location if @image_location))
+- content_for(:page_url, (request.url if request.url))
 
 .container-fluid
   .card.d-flex.justify-content-center.align-items-center.mt-3
@@ -15,7 +21,7 @@
             = image_tag 'noun_Mars_288064.svg', width: '45px', class: 'mr-2', alt: 'Mars by lastspark from the Noun Project'
             p
               | #{@name && @name.length > 0 ? "#{@name.capitalize}'s" : 'Your'} Martian birthday is&nbsp;
-              span.font-weight-bold #{@month_name} #{@month}, #{@mrtn_year} MCE
+              span.font-weight-bold #{@m_month} #{@m_date}, #{@m_year} MCE
           br
           p
             span.font-weight-bold  What does this mean?
@@ -24,7 +30,7 @@
           p If you want to see how the tow planets were positioned on the day you were born, checkout the image above.
           P Famouse people sharing you Martilan birthday
         .col-sm-4.col-xs-12
-          = image_tag image_path(@image_name), class: 'img-fluid'
+          = image_tag image_path(@image_location), class: 'img-fluid'
       .row
         .col-12
           .d-flex.align-items-center.flex-column

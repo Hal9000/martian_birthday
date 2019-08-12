@@ -61,11 +61,13 @@
   &:last-child {
     border-bottom: 1px solid #F2F2F2;
   }
+
   .toggle-title {
     position: relative;
     display: block;
     border-top: 1px solid #F2F2F2;
     margin-bottom: 6px;
+
     h3 {
       font-size: 20px;
       margin: 0px;
@@ -73,14 +75,16 @@
       cursor: pointer;
       font-weight: 200;
     }
+
     &.active h3 {
     }
   }
 
   .toggle-inner {
-    padding: 7px 25px 10px 25px;
+    padding: 7px 5px 10px 5px;
     display: none;
     margin: -7px 0 6px;
+
     div {
       max-width: 100%;
     }
@@ -89,7 +93,8 @@
   .toggle-title {
     .title-name {
       display: block;
-      padding: 25px 25px 14px;
+      padding: 25px 5px 14px 5px;
+      font-weight: 500;
     }
 
     a i {
@@ -110,9 +115,4 @@
       right: 0;
     }
   }
-}
-
-
-footer {
-
 }
