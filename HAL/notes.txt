@@ -1,0 +1,87 @@
+1. I added an image here that I think might be good at the top of the 
+   front page -- see mars-bday.png
+
+2. I also added an animated GIF -- see orbits.gif -- it is not quite
+   good enough, but I can fix later.
+
+3. Refer back to my old-mockup.png -- a simple design is good, but 
+   I still like pictures.  :)  So I suggest mars-bday.png at top and 
+   the animation under it to one side. (Does not have to be exactly 
+   like original layout -- stick with your fields/button/etc for now.)
+
+4. The famous.txt file has famous people in it (with fields separated
+   by "|"). For sorting purposes, the first fields are: Martian month, 
+   Martian day, Martian year. Next fields are Earth year, month, day;
+   and finally the person's name and a short description.
+
+5. There are too many people in this file! I will trim it later. Maybe
+   you can just take the first few?
+
+6. I will start looking at: 
+     - Terms of service content
+     - Privacy content
+     - FAQ heading and content
+     - Contact us content
+
+7. You can be thinking: Where will we put a store? Just second page or
+   maybe both? And what kind of stuff should go in it?
+
+8. I was looking at this text here:
+
+    span Well, remember that Martian #{@month_name} is the 21st of the 
+         24 months in the MCE calendar. It has nothing to do with "our" 
+         #{@month_name}! In fact, the #{@month}th is the last day of the 
+         month. And the year #{@mrtn_year} sounds medieval tol us! But 
+         Mars takes  nearly twice as long to orbit the sun. Think of it 
+         this way: while the Earth orbited the sun #{@earth_year} times, 
+         Mars only orbited #{@mrtn_year} times.
+
+I don't know how to handle this logic -- but part of the explanation is only 
+necessary 50% of the time.
+
+The Martian months that are signs of the zodiac don't cause confusion because
+everyone knows we don't have months named Gemini or Virgo or whatever. It's
+only the others like Martian January (M-January) that cause confusion.
+(So only the odd-numbered ones.)
+
+Also the 21 should not be hardcoded.
+
+Also I don't know how ordinal numbers are handled (1st, 2nd, 3rd, 4th, ...)
+but I am sure Rails or some I18N library can do it.
+
+I guess "for now" we will not do real I18N or whatever.
+
+I deleted/added some text. What do you think of this?
+
+Months 1, 3, 5, ...
+
+    span Well, remember that Martian #{@month_name} is the #{ordinal(@month)} 
+         of the 24 months in the MCE calendar. Martian #{@month_name} or
+         M-#{@month_name} has nothing to do with "our" #{@month_name}! And
+         no Martian month has more than 28 days; the last month, Taurus
+         is "short," and may have 24 or 25 days. (And we should really say
+         sols, not days.)
+
+         As for the year: #{@mrtn_year} sounds medieval to us! But 
+         Mars takes  nearly twice as long to orbit the sun. Think of it 
+         this way: While the Earth orbited the sun #{@earth_year} times, 
+         Mars only orbited #{@mrtn_year} times (so our year 1880 CE started 
+         about the same time as Martian year 1000 MCE.
+
+
+Months 2, 4, 6, ... (2nd sentence is omitted)
+
+    span Well, remember that Martian #{@month_name} is the #{ordinal(@month)} 
+         of the 24 months in the MCE calendar. And no Martian month has more 
+         than 28 days; the last month, Taurus is "short," and may have 24 or 
+         25 days.  (And we should really say sols, not days.)
+
+         As for the year: #{@mrtn_year} sounds medieval to us! But 
+         Mars takes  nearly twice as long to orbit the sun. Think of it 
+         this way: While the Earth orbited the sun #{@earth_year} times, 
+         Mars only orbited #{@mrtn_year} times (so our year 1880 CE started 
+         about the same time as Martian year 1000 MCE.
+
+Really only the second sentence varies with odd/even months.
+
+
