@@ -6,13 +6,17 @@
  */
 
 .content-wrapper {
-  background: asset_url("mars-bday.png");
   background-size: cover;
   min-height: calc(100vh - 40px);
   padding: 50px;
   .card {
     opacity: 0.9
   }
+}
+
+.content-wrapper-home {
+  background: asset_url("mars-bday.png");
+  @extend .content-wrapper
 }
 
 .p-l-xxl {
