@@ -1,3 +1,3 @@
 class PagesController < ApplicationController
-  layout :static
+  layout 'static'
 end
