@@ -30,3 +30,5 @@ yarn-debug.log*
 .idea/*
 /public/uploads/*
 !/public/uploads/.keep
+
+.DS_Store
