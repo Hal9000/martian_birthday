@@ -20,8 +20,13 @@ class MartiandateController < ApplicationController
           @earth_year = @birthday.strftime('%Y')
           @earth_month_name = @birthday.strftime('%B')
           @m_date = @birthday.strftime('%d')
-          @m_month_name = mrtn_dob.month_name
+          ​
           @m_month = mrtn_dob.month
+          if @m_month.odd?
+            @m_month_name = mrtn_dob.month_name.split('-')[1]
+          else
+            @m_month_name = mrtn_dob.month_name
+          end
           @m_year = mrtn_dob.year
           @famous_people = get_famous_people(mrtn_dob.year, mrtn_dob.month, @birthday.strftime('%d'))
           @famous_people = @famous_people.sample
@@ -66,4 +71,3 @@ class MartiandateController < ApplicationController
     famous_people
   end
 end
-
