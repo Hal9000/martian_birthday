@@ -20,7 +20,6 @@ class MartiandateController < ApplicationController
           @earth_year = @birthday.strftime('%Y')
           @earth_month_name = @birthday.strftime('%B')
           @m_date = @birthday.strftime('%d')
-          ​
           @m_month = mrtn_dob.month
           if @m_month.odd?
             @m_month_name = mrtn_dob.month_name.split('-')[1]
