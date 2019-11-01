@@ -21,18 +21,32 @@
             = image_tag 'noun_Mars_288064.svg', width: '45px', class: 'mr-2', alt: 'Mars by lastspark from the Noun Project'
             p
               | #{@name && @name.length > 0 ? "#{@name.capitalize}'s" : 'Your'} Martian birthday is&nbsp;
-              span.font-weight-bold #{@m_month} #{@m_date}, #{@m_year} MCE
+              span.font-weight-bold #{@m_month.to_i.odd? ? 'M-' + @m_month_name : @m_month_name } #{@m_date}, #{@m_year} MCE
           br
           p
             span.font-weight-bold  What does this mean?
             |&nbsp;
-            span Well, remember that Martian #{@month_name} is the 21st of the 24 months in the MCE calendar. It has nothing to do with "our" #{@month_name}! In fact, the #{@month}th is the last day of the month. And the year #{@mrtn_year} sounds medieval tol us! But Mars takes  nearly twice as long to orbit the sun. Think of it this way: while the Earth orbited the sun #{@earth_year} times, Mars only orbited #{@mrtn_year} times.
+            span Well, remember that Martian #{@m_month_name} is the #{@m_month} of the 24 months in the MCE calendar.
+            |&nbsp;
+            - if @m_month.to_i.odd?
+              span Martian #{@m_month_name} or M-#{@m_month_name} has nothing to do with "our" #{@m_month_name}!
+            |&nbsp;
+            span And no Martian month has more than 28 days; the last month, Taurus is "short," and may have 24 or 25 days. (And we should really say sols, not days.)
+          p
+            span As for the year: #{@m_year} sounds medieval to us! But Mars takes  nearly twice as long to orbit the sun. Think of it this way: While the Earth orbited the sun #{@earth_year} times, Mars only orbited #{@m_year} times (so our year 1880 CE started about the same time as Martian year 1000 MCE.
           p If you want to see how the tow planets were positioned on the day you were born, checkout the image above.
-          P Famouse people sharing you Martilan birthday
+          - if @famous_people.present?
+            P Famouse people sharing you Martilan birthday: #{@famous_people}
         .col-sm-4.col-xs-12
           = image_tag image_path(@image_location), class: 'img-fluid'
       .row
         .col-12
           .d-flex.align-items-center.flex-column
-            button.btn.btn-primary data-target="#exampleModalCenter" data-toggle="modal" type="button" Share
+            div
+              button.btn.btn-primary.mr-2 data-target="#exampleModalCenter" data-toggle="modal" type="button"
+                i.fa.fa-share-alt.mr-2
+                span Share
+              a.button.btn.btn-primary href="https://google.com" target="_blank"
+                i.fa.fa-shopping-cart.mr-2
+                span Store
     = render :partial => 'martiandate/share_modal'

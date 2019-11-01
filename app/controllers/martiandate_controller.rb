@@ -18,9 +18,17 @@ class MartiandateController < ApplicationController
           mrtn_dob = MarsDateTime.new(@birthday)
           @earth_dob = @birthday.strftime('%B %d, %Y')
           @earth_year = @birthday.strftime('%Y')
+          @earth_month_name = @birthday.strftime('%B')
           @m_date = @birthday.strftime('%d')
-          @m_month = @birthday.strftime('%B')
+          @m_month = mrtn_dob.month
+          if @m_month.odd?
+            @m_month_name = mrtn_dob.month_name.split('-')[1]
+          else
+            @m_month_name = mrtn_dob.month_name
+          end
           @m_year = mrtn_dob.year
+          @famous_people = get_famous_people(mrtn_dob.year, mrtn_dob.month, @birthday.strftime('%d'))
+          @famous_people = @famous_people.sample
         rescue ArgumentError
           @error = 'The Given URL is invalid, please retry and find your martial Birthday'
         end
@@ -48,5 +56,17 @@ class MartiandateController < ApplicationController
     edeg, mdeg = OrbitalCalculations.new.get_earth_mars_angles(yyyy.to_i, mm.to_i, dd.to_i)
     EarthMarsOrbits.make_image(edeg.round(1), mdeg.round(1), image_path)
   end
-end
 
+  def get_famous_people(year, month, day)
+    famous_people = []
+    file = File.open(Rails.root.join('HAL','famous.txt'), 'r')
+    file.each_line do |line|
+      dataArray = line.split('|')
+      if (dataArray[0].to_i.eql? month.to_i) && (dataArray[1].to_i.eql? day.to_i) && (dataArray[2].to_i.eql? year.to_i)
+        famous_people << dataArray[6]
+      end
+    end
+    file.close
+    famous_people
+  end
+end

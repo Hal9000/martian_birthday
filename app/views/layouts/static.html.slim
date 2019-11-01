@@ -66,8 +66,7 @@ html
         strong #{@error}
         button.close aria-label="Close" data-dismiss="alert" type="button"
           span aria-hidden="true"  &times;
-    .content-wrapper.content-wrapper-home
+    .content-wrapper
       = yield
-      .footer-home
-        = render :partial => 'layouts/footer'
+    = render :partial => 'layouts/footer'
 
