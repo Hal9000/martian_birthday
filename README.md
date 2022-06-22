@@ -1,24 +1,11 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This will be a sort of marketing gimmick to help get people interested
+in space.
 
-Things you may want to cover:
+Refer to the MarsDate gem at https://github.com/Hal9000/martian_birthday
 
-* Ruby version
+Refer also to https://marscalendar.org
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Also built a simple API there -- see documentation by hitting `/api`
+with nothing after it: https://marscalendar.org/api
