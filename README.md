@@ -3,7 +3,7 @@
 This will be a sort of marketing gimmick to help get people interested
 in space.
 
-Refer to the MarsDate gem at https://github.com/Hal9000/martian_birthday
+Refer to the MarsDate gem at https://github.com/Hal9000/MarsDate
 
 Refer also to https://marscalendar.org
 
